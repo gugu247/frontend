@@ -1,0 +1,29 @@
+window.spproj = [
+    {
+        id:1,
+        title:'1',
+        description:'describe1',
+        tasks:['ergeg','fwewf'],
+        peoples:['dqwd','qdwdq'],
+        end_time:'2026-01-01',
+        status:'done',
+    },
+    {
+        id:2,
+        title:'2',
+        description:'describe2',
+        tasks:['ergeg','fwewf'],
+        peoples:['dqwd','qdwdq'],
+        end_time:'2026-01-02',
+        status:'done',
+    },
+    {
+        id:3,
+        title:'3',
+        description:'describe3',
+        tasks:['ergeg','fwewf'],
+        peoples:['dqwd','qdwdq'],
+        end_time:'2026-01-03',
+        status:'done',
+    },
+]

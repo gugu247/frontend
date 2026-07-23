@@ -1,0 +1,107 @@
+:root{
+    --task-color_1: red;
+    --task-color_2: yellow;
+    --task-color_3: green;
+}
+
+
+
+#vse{
+    margin: 30px;
+    background-color: white;
+    border: black solid 1px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 100px 0px rgba(34, 60, 80, 0.72);
+    height: 1000px;
+}
+
+body{
+    background: linear-gradient(90deg, rgb(63, 43, 150) 5%, rgb(168, 192, 255) 95%);
+}
+
+
+header{
+    color:white;
+    display:flex;
+    background: linear-gradient(90deg, rgb(63, 43, 150) 5%, rgb(168, 192, 255) 95%);
+    font-size: 30px;
+    padding-left:150px;
+    padding-right: 150px;
+}
+
+#naim{
+    margin-right: 200px;
+    margin-top: 30px;
+    margin-bottom:30px;
+}
+
+h3, h1{
+    margin:1px
+}
+
+#describe{
+    word-break: break-all;
+    
+}
+
+
+
+#alltasks{
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+
+.taskcard{
+    display:flex;
+    justify-content:space-around;
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: -4px 0px 0px 0px var(--task-color_3);
+    transition: transform 0.3s ease;
+}
+
+.taskcard:hover{
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+#allpeoples{
+    display: flex;
+}
+
+.peoplecard{
+    border: black solid 1px;
+    width: 200px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 50px;
+    transition: transform 0.3s ease;
+}
+
+.peoplecard:hover{
+    transform: translate(10px, -10px);
+}
+
+main{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+button{
+    margin: 5px;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+textarea{
+    font-size: 20px;
+}

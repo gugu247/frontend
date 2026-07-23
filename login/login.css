@@ -1,0 +1,18 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin-top:300px;
+    background: linear-gradient(90deg, rgb(63, 43, 150) 5%, rgb(168, 192, 255) 95%);
+}
+
+#login{
+    border:black solid 1px;
+    padding: 25px;
+    background-color: white;
+}
+
+button{
+    width: 130px;
+    height:50px;
+    margin-top: 20px;
+}

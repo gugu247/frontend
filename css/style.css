@@ -1,0 +1,31 @@
+#header{
+    background-color: #296EB4;
+    color:white;
+    display:flex;
+    
+}
+
+img{
+    width: 120px;
+}
+
+
+
+#poisk{
+    margin: 50px;
+}
+
+input{
+    width: 500px;
+}
+
+
+
+.card{
+    display:flex;
+    justify-content:space-around;
+    border: black solid 3px;
+    margin-top: 20px;
+    background-color: snow;
+    
+}

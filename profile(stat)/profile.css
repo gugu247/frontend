@@ -1,0 +1,47 @@
+#header{
+    background: linear-gradient(90deg, rgb(63, 43, 150) 5%, rgb(168, 192, 255) 95%);
+    color:white;
+    display:flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 30px;
+}
+
+
+body{
+    background: linear-gradient(90deg, rgb(63, 43, 150) 5%, rgb(168, 192, 255) 95%);
+}
+
+#vse{
+    margin: 30px;
+    background-color: white;
+    border: black solid 1px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 100px 0px rgba(34, 60, 80, 0.72);
+    height: 1000px;
+}
+
+img{
+    width: 130px;
+}
+
+
+
+.statcard{
+    border: black solid 1px;
+    width: 500px;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 20px;
+    
+}
+
+#pokazat{
+    margin-left: 250px;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
