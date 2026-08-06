@@ -1,31 +1,34 @@
 const API_URL = "http://127.0.0.1:8000";
 
 function mapProject(product) {
-  return {
-    id: product.id,
-    title: product.title,
-    description: product.description,
-    tasks: product.tasks,
-    peoples: product.peoples,
-    end_time: product.end_time,
-    status: product.status
-  };
-
+    return {
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        tasks: product.tasks,
+        peoples: product.peoples,
+        end_time: product.end_time,
+        status: product.status
+    };
 }
 
 async function getProjects() {
-    const response = await fetch($`{API_URL}`/projects);
+    console.log(`${API_URL}/all-projects`)
+    const response = await fetch(`${API_URL}/all-projects`);
 
     if (!response.ok) {
         throw new Error("Не удалось загрузить projects");
     }
 
-    const products = await response.json();
-    return products.map(mapProject);
+    const projects = await response.json();
+    const list = projects.map(mapProject)
+    console.log(list,typeof list)
+    return list;
 }
 
 async function getProject(proj_id) {
-    const response = await fetch($`{API_URL}`/projects/$`{proj_id}`);
+    console.log(`${API_URL}/projects/${proj_id}`)
+    const response = await fetch(`${API_URL}/projects/${proj_id}`);
 
     if (!response.ok) {
         throw new Error("Project не найден");
@@ -75,4 +78,3 @@ async function deleteProject(proj_id){
     const product = await response.json();
     return mapProject(product);
 }
-

@@ -51,11 +51,6 @@
 
 
 
-
-
-
-
-
 const taskcard = [...document.querySelectorAll('.taskcard')];
 console.log(taskcard)
 taskcard.forEach(function(task){
@@ -64,3 +59,24 @@ taskcard.forEach(function(task){
     window.location.href = '../task/task.html'
   }
 });
+
+
+const title = document.getElementById('title')
+
+async function renderProject(){
+    console.log(`${API_URL}/projects/${proj_id}`)
+    const response = await fetch(`${API_URL}/projects/${proj_id}`);
+
+    if (!response.ok) {
+        throw new Error("Project не найден");
+    }
+
+    const product = await response.json();
+    console.log(mapProject(product))
+
+
+
+    title.innerHTML = ''
+}
+
+renderProject()

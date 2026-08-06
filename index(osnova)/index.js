@@ -2,22 +2,38 @@ const allpr = document.getElementById('allpr');
 const inp = document.getElementById('inp');
 const category = document.getElementById('category');
 
+//const API_URL = "http://127.0.0.1:8000";
 
 
-function renderProducts(items){
+async function renderProducts(){
+    console.log(`${API_URL}/all-projects`)
+    const response = await fetch(`${API_URL}/all-projects`);
+
+    if (!response.ok) {
+        throw new Error("Не удалось загрузить projects");
+    }
+
+    const projects = await response.json();
+    const items = projects.map(mapProject)
+    console.log(items,typeof items)
+
+
+
     allpr.innerHTML = ''
 
     if(items.length===0){
         allpr.innerHTML = '<p>Нет результата</p>'
         return
     }
-
-    items.forEach(function(product){
+    console.log(items)
+    items.forEach(product => {
+        console.log(123)
         const card = document.createElement('div');
         card.id = `${product.id}`
         card.className = 'card'
 
         card.innerHTML= `
+            <h1>${product.id}</h1>
             <h1>${product.title}</h1>
             <h2>${product.end_time}</h2>
             <h2>${product.status}</h2>
@@ -44,5 +60,15 @@ function renderProducts(items){
         };
     });
 };
+renderProducts();
 
-renderProducts(window.spproj);
+
+
+const projectcard = [...document.querySelectorAll('.card')]
+console.log(projectcard)
+projectcard.forEach(function(pr){
+  console.log('wqeld')
+  pr.onclick = function(){
+    window.location.href = '../product/product.html'
+  }
+});
