@@ -59,16 +59,26 @@ async function renderProducts(){
             });
         };
     });
+
+    console.log(allcards);
+    allcards.forEach(function(pr){
+      console.log('jhrfoerfoego')
+      pr.onclick = function(){
+        window.location.href = '../product/product.html'
+      }
+    });
+
+
 };
 renderProducts();
 
 
 
-const projectcard = [...document.querySelectorAll('.card')]
-console.log(projectcard)
-projectcard.forEach(function(pr){
-  console.log('wqeld')
-  pr.onclick = function(){
-    window.location.href = '../product/product.html'
-  }
-});
+//const projectcard = [...document.querySelectorAll('.card')];
+//console.log(projectcard);
+//projectcard.forEach(function(pr){
+//  console.log('jhrfoerfoego')
+//  pr.onclick = function(){
+//    window.location.href = '../product/product.html'
+//  }
+//});

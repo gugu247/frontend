@@ -51,6 +51,10 @@
 
 
 
+//import { API_URL } from "../index(osnova)/api.js";
+
+//const API_URL = "http://127.0.0.1:8000";
+
 const taskcard = [...document.querySelectorAll('.taskcard')];
 console.log(taskcard)
 taskcard.forEach(function(task){
@@ -61,9 +65,10 @@ taskcard.forEach(function(task){
 });
 
 
-const title = document.getElementById('title')
+const titlepr = document.getElementById('#title')
 
-async function renderProject(){
+async function renderProject(proj_id){
+    console.log(proj_id, API_URL)
     console.log(`${API_URL}/projects/${proj_id}`)
     const response = await fetch(`${API_URL}/projects/${proj_id}`);
 
@@ -72,11 +77,14 @@ async function renderProject(){
     }
 
     const product = await response.json();
-    console.log(mapProject(product))
+    const pr = mapProject(product);
+    console.log(mapProject(product));
 
 
 
-    title.innerHTML = ''
+    titlepr.innerHTML = `
+        <h1 id='title'>${pr.title}<h1>
+    `
 }
 
-renderProject()
+renderProject(1)
