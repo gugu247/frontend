@@ -65,8 +65,7 @@ taskcard.forEach(function(task){
 });
 
 
-const titlepr = document.getElementById('#title')
-
+const titlepr = document.getElementById('title')
 async function renderProject(proj_id){
     console.log(proj_id, API_URL)
     console.log(`${API_URL}/projects/${proj_id}`)
@@ -80,11 +79,20 @@ async function renderProject(proj_id){
     const pr = mapProject(product);
     console.log(mapProject(product));
 
+    // titlepr.innerHTML = `
+    //     <h1 id='title'>${pr.title}<h1>
+    // `
 
+    // const titlepr = document.getElementById('title') 
 
-    titlepr.innerHTML = `
-        <h1 id='title'>${pr.title}<h1>
-    `
+    console.log(pr.title, titlepr)
+    titlepr.textContent = `${pr.title}`
+
 }
 
-renderProject(1)
+
+// function bebebe(proj_id){
+//   renderProject(proj_id)
+// }
+
+// renderProject(1)
