@@ -12,6 +12,15 @@ function mapProject(product) {
     };
 }
 
+// TODO: mapPeople, mapTask
+
+function mapPeople{
+    return {
+
+    }
+}
+
+
 async function getProjects() {
     console.log(`${API_URL}/all-projects`)
     const response = await fetch(`${API_URL}/all-projects`);
