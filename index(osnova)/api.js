@@ -14,10 +14,24 @@ function mapProject(product) {
 
 // TODO: mapPeople, mapTask
 
-function mapPeople{
+function mapPeople(product){
     return {
+        id: product.id,
+        name: product.name,
+        proj_id: product.proj_id
+    };
+}
 
-    }
+function mapTask(product){
+    return {
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        status: product.status,
+        priority: product.priority,
+        end_time: product.end_time,
+        proj_id: product.proj_id
+    };
 }
 
 

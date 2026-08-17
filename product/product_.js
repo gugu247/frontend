@@ -72,13 +72,14 @@ taskcard.forEach(function(task){
 async function renderProject(proj_id){
     console.log(proj_id, API_URL)
     console.log(`${API_URL}/projects/${proj_id}`)
+
     const response = await fetch(`${API_URL}/projects/${proj_id}`);
     if (!response.ok) {
         throw new Error("Project не найден");
     }
     const product = await response.json();
     const pr = mapProject(product);
-    console.log(mapProject(product));
+    console.log(pr);
 
 
 
@@ -87,7 +88,7 @@ async function renderProject(proj_id){
         throw new Error('Task не найден');
     }
     const ta = await resptasks.json()
-    const tapr = ta.map()
+    const tapr = ta.map(mapTask)
     console.log(tapr)
 
 
@@ -97,7 +98,7 @@ async function renderProject(proj_id){
         throw new Error('People не найден')
     }
     const pe = await resppeoples.json()
-    const pepr = pe.map()
+    const pepr = pe.map(mapPeople)
     console.log(pepr)
 
 
