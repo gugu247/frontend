@@ -3,7 +3,7 @@ const inp = document.getElementById('inp');
 const category = document.getElementById('category');
 
 //const API_URL = "http://127.0.0.1:8000";
-
+//sessionStorage.setItem('qwerty',API_URL)
 
 async function renderProducts(){
     console.log(`${API_URL}/all-projects`)
@@ -66,6 +66,7 @@ async function renderProducts(){
         console.log(typeof pr.id)
         console.log(pr.id)
         sessionStorage.setItem('bebeb',pr.id)
+//        sessionStorage.setItem('qwerty',API_URL)
         window.location.href = '../product/product.html'
 
       }

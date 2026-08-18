@@ -50,18 +50,21 @@
 // loadProduct();
 
 
-//import { API_URL } from "../index(osnova)/api.js";
+//import { url } from "../index(osnova)/api.js";
 
-//const API_URL = "http://127.0.0.1:8000";
+//const url = "http://127.0.0.1:8000";
 
-const taskcard = [...document.querySelectorAll('.taskcard')];
-console.log(taskcard)
-taskcard.forEach(function(task){
-  console.log('wqeld')
-  task.onclick = function(){
-    window.location.href = '../task/task.html'
-  }
-});
+
+
+
+//const taskcard = [...document.querySelectorAll('.taskcard')];
+//console.log(taskcard)
+//taskcard.forEach(function(task){
+//  console.log('wqeld')
+//  task.onclick = function(){
+//    window.location.href = '../task/task.html'
+//  }
+//});
 
 
 
@@ -70,10 +73,11 @@ taskcard.forEach(function(task){
 
 
 async function renderProject(proj_id){
-    console.log(proj_id, API_URL)
-    console.log(`${API_URL}/projects/${proj_id}`)
+    const url = "http://127.0.0.1:8000";
+    console.log(proj_id, url)
+    console.log(`${url}/projects/${proj_id}`)
 
-    const response = await fetch(`${API_URL}/projects/${proj_id}`);
+    const response = await fetch(`${url}/projects/${proj_id}`);
     if (!response.ok) {
         throw new Error("Project не найден");
     }
@@ -83,7 +87,7 @@ async function renderProject(proj_id){
 
 
 
-    const resptasks = await fetch(`${API_URL}/tasks/${proj_id}`);
+    const resptasks = await fetch(`${url}/tasks/${proj_id}`);
     if(!resptasks.ok){
         throw new Error('Task не найден');
     }
@@ -93,7 +97,7 @@ async function renderProject(proj_id){
 
 
 
-    const resppeoples = await fetch(`${API_URL}/peoples/${proj_id}`)
+    const resppeoples = await fetch(`${url}/peoples/${proj_id}`)
     if(!resppeoples.ok){
         throw new Error('People не найден')
     }
@@ -137,6 +141,44 @@ async function renderProject(proj_id){
         tasks.appendChild(taskcard);
     })
 
+
+    const taskcard = [...document.querySelectorAll('.taskcard')];
+    console.log(taskcard)
+
+
+    const buttoncreate = document.getElementById('buttoncreate')
+
+
+    buttoncreate.onclick = async function(){
+//        const taskcard = document.createElement('div');
+//        taskcard.id = `${task.id}`;
+//        taskcard.className = 'taskcard';
+
+
+        const titlecreate = document.getElementById('titlecreate').value
+        const describecreate = document.getElementById('describecreate').value
+        const statuscreate = document.getElementById('statuscreate').value
+        const priopritycreate = document.getElementById('priopritycreate').value
+        const end_timecreate = document.getElementById('end_timecreate').value
+        console.log(titlecreate)
+
+       const taskcreate = await fetch(`${url}/tasks/${proj_id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'title': titlecreate,
+            'description': describecreate,
+            'status': statuscreate,
+            'priority': priopritycreate,
+            'end_time': end_timecreate,
+            'proj_id':proj_id
+          })
+        });
+    }
+
+
     pepr.forEach(project => {
         const peoplecard = document.createElement('div')
         peoplecard.id = `${project.id}`
@@ -148,11 +190,15 @@ async function renderProject(proj_id){
         peoples.appendChild(peoplecard)
     })
 
+
+    taskcard.forEach(function(task){
+      console.log('wqeld')
+      task.onclick = function(){
+        sessionStorage.setItem('ugabuga',task.id)
+        window.location.href = '../task/task.html'
+      }
+    });
+
 }
 const id = sessionStorage.getItem('bebeb')
 renderProject(id)
-// function bebebe(proj_id){
-//   renderProject(proj_id)
-// }
-
-// renderProject(1)
