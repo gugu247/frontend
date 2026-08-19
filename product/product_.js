@@ -150,11 +150,6 @@ async function renderProject(proj_id){
 
 
     buttoncreate.onclick = async function(){
-//        const taskcard = document.createElement('div');
-//        taskcard.id = `${task.id}`;
-//        taskcard.className = 'taskcard';
-
-
         const titlecreate = document.getElementById('titlecreate').value
         const describecreate = document.getElementById('describecreate').value
         const statuscreate = document.getElementById('statuscreate').value
@@ -202,3 +197,9 @@ async function renderProject(proj_id){
 }
 const id = sessionStorage.getItem('bebeb')
 renderProject(id)
+
+
+const buttonback = document.getElementById('buttonback')
+buttonback.onclick = function(){
+    window.location.href = '../index(osnova)/index.html'
+}

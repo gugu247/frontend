@@ -72,6 +72,31 @@ async function renderProducts(){
       }
     });
 
+    const buttoncreatepr = document.getElementById('buttoncreatepr')
+
+    buttoncreatepr.onclick = async function(){
+        const titlecreatepr = document.getElementById('titlecreatepr').value
+        const describecreatepr = document.getElementById('describecreatepr').value
+        const statuscreatepr = document.getElementById('statuscreatepr').value
+        const end_timecreatepr = document.getElementById('end_timecreatepr').value
+        console.log(titlecreatepr)
+
+        const projectcreate = await fetch(`${API_URL}/projects`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'title': titlecreatepr,
+                'description': describecreatepr,
+                'tasks': 'ugabuga',
+                'peoples': 'bebee',
+                'status': statuscreatepr,
+                'end_time': end_timecreatepr,
+            })
+            });
+    }
+
 
 };
 renderProducts();

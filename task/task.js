@@ -24,3 +24,10 @@ async function renderTask(proj_id,task_id){
 const idproj = sessionStorage.getItem('bebeb')
 const idtask = sessionStorage.getItem('ugabuga')
 renderTask(idproj,idtask)
+
+
+const buttonbacktask = document.getElementById('buttonbacktask')
+buttonbacktask.onclick = function(){
+    console.log('bebe')
+    window.location.href = '../product/product.html'
+}
