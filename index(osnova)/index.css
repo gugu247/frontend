@@ -21,11 +21,19 @@ header{
     font-size: 20px;
 }
 
-#sign{
+#signin{
     margin-left: 900px;
     width: 100px;
     height: 50px;
     
+}
+
+
+#signup{
+    margin-left: 900px;
+    width: 100px;
+    height: 50px;
+
 }
 
 
@@ -47,8 +55,6 @@ input{
 
 
 .card{
-    display:flex;
-    justify-content:space-around;
     margin-top: 10px;
     background-color: #f8f9fa;
     border-radius: 15px;
@@ -68,4 +74,10 @@ main{
 button{
     margin: 5px;
     border-radius: 20px;
+}
+
+.cardbut{
+    display:flex;
+    justify-content:space-around;
+    border:1px solid black;
 }

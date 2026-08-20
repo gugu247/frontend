@@ -29,14 +29,16 @@ async function renderProducts(){
     items.forEach(product => {
         console.log(123)
         const card = document.createElement('div');
-        card.id = `${product.id}`
+//        card.id = `${product.id}`
         card.className = 'card'
 
         card.innerHTML= `
-            <h1>${product.id}</h1>
-            <h1>${product.title}</h1>
-            <h2>${product.end_time}</h2>
-            <h2>${product.status}</h2>
+            <div class='cardbut' id=${product.id}>
+                <h1>${product.id}</h1>
+                <h1>${product.title}</h1>
+                <h2>${product.end_time}</h2>
+                <h2>${product.status}</h2>
+            </div>
             <button class="butdone" id="${product.id}">Выполнен</button>
         `;
         allpr.appendChild(card);
@@ -45,23 +47,30 @@ async function renderProducts(){
     const butdones = [...document.querySelectorAll('.butdone')];
     const allcards = [...document.querySelectorAll('.card')];
 
+    const cardbebe = [...document.querySelectorAll('.cardbut')]
+    console.log(cardbebe)
 
     butdones.forEach(function(but){
-        but.onclick = donepr;
         console.log(butdones.indexOf(but));
 
-        function donepr(){
-            allcards.forEach(function(cardProject){
+        but.onclick = function donepr(){
+            cardbebe.forEach(function(cardProject){
                 if(but.id == cardProject.id){
-                    cardProject.remove()
+                    cardProject.remove();
                     console.log(cardProject);
                 };
             });
+            but.innerHTML = `
+                <h1>ВСЕ КЛАССНО</h1>
+            `
         };
     });
     
     console.log(allcards);
-    allcards.forEach(function(pr){
+
+    const cardbuts = [...document.querySelectorAll('.cardbut')]
+    console.log(cardbuts)
+    cardbuts.forEach(function(pr){
       pr.onclick = function(){
         console.log(typeof pr.id)
         console.log(pr.id)
@@ -101,6 +110,18 @@ async function renderProducts(){
 };
 renderProducts();
 
+
+
+const signin = document.getElementById('signin')
+const signup = document.getElementById('signup')
+
+signin.onclick = function(){
+    window.location.href = '../login/login.html'
+}
+
+signup.onclick = function(){
+    window.location.href = '../register/register.html'
+}
 
 //const projectcard = [...document.querySelectorAll('.card')];
 //console.log(projectcard);
