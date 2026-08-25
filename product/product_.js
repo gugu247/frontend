@@ -171,6 +171,9 @@ async function renderProject(proj_id){
             'proj_id':proj_id
           })
         });
+
+        window.location.reload()
+
     }
 
 
@@ -184,6 +187,29 @@ async function renderProject(proj_id){
         `
         peoples.appendChild(peoplecard)
     })
+
+
+    const buttonpeople = document.getElementById('buttonpeople')
+
+    buttonpeople.onclick = async function(){
+        const peoplename = document.getElementById('peoplename').value
+
+        const peoplecreate = await fetch(`${url}/peoples/${proj_id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'name': peoplename,
+            'proj_id': proj_id
+          })
+        });
+
+        window.location.reload()
+
+    }
+
+
 
 
     taskcard.forEach(function(task){

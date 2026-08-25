@@ -41,6 +41,10 @@ async function renderProducts(){
             </div>
             <button class="butdone" id="${product.id}">Выполнен</button>
         `;
+        if(`${product.status}` == 'done'){
+            card.style.setProperty('--color-done', 'green')
+        }
+
         allpr.appendChild(card);
     });
     
@@ -53,16 +57,52 @@ async function renderProducts(){
     butdones.forEach(function(but){
         console.log(butdones.indexOf(but));
 
-        but.onclick = function donepr(){
-            cardbebe.forEach(function(cardProject){
-                if(but.id == cardProject.id){
-                    cardProject.remove();
-                    console.log(cardProject);
-                };
+        but.onclick = async function donepr(){
+//            cardbebe.forEach(function(cardProject){
+//                if(but.id == cardProject.id){
+//                    cardProject.remove();
+//                    console.log(cardProject);
+//                };
+//            });
+//            but.innerHTML = `
+//                <h1>DONE</h1>
+//            `
+
+            const statusupdpr = await fetch(`${API_URL}/projects/${but.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "status": 'done'
+                })
             });
-            but.innerHTML = `
-                <h1>ВСЕ КЛАССНО</h1>
-            `
+
+            window.location.reload()
+
+
+
+//            fetch(window.location.href, {
+//                method: 'GET',
+//                headers: {
+//                    'Cache-Control': 'no-cache',
+//                    'Pragma': 'no-cache'
+//                }
+//            }).then(() => {
+//                window.location.reload()
+//            })
+
+//            window.location.reload(true)
+//
+//            cardbebe.forEach(function(cardProject){
+//                if(but.id == cardProject.id){
+//                    cardProject.remove();
+//                    console.log(cardProject);
+//                    cardProject.style.setProperty('--color-done','green')
+//                };
+//            });
+
+
         };
     });
     
@@ -80,6 +120,9 @@ async function renderProducts(){
 
       }
     });
+
+
+
 
     const buttoncreatepr = document.getElementById('buttoncreatepr')
 

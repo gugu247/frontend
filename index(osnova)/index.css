@@ -1,3 +1,7 @@
+:root{
+    --color-done: #f8f9fa;
+}
+
 #vse{
     margin: 30px;
     background-color: white;
@@ -22,7 +26,6 @@ header{
 }
 
 #signin{
-    margin-left: 900px;
     width: 100px;
     height: 50px;
     
@@ -30,7 +33,6 @@ header{
 
 
 #signup{
-    margin-left: 900px;
     width: 100px;
     height: 50px;
 
@@ -56,7 +58,7 @@ input{
 
 .card{
     margin-top: 10px;
-    background-color: #f8f9fa;
+    background-color: var(--color-done);
     border-radius: 15px;
     transition: transform 0.3s ease;
 }

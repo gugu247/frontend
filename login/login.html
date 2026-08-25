@@ -6,17 +6,29 @@
         <link href="login.css" rel="stylesheet">
     </head>
     <body>
-        <div id="login">
-            <h2>Login</h2>
-            <input id='logininp'>
-            <h2>Password</h2>
-            <input id="passwordinp">
-            <div id="but">
-                <button>Login</button>
-                <h1 id="warn"></h1>
-            </div>
-        </div>
+<!--        <div id="login">-->
+<!--            <h2>Login</h2>-->
+<!--            <input id='logininp'>-->
+<!--            <h2>Password</h2>-->
+<!--            <input id="passwordinp">-->
+<!--            <div id="but">-->
+<!--                <button>Login</button>-->
+<!--                <h1 id="warn"></h1>-->
+<!--            </div>-->
+<!--        </div>-->
 
+        <form id="login-form">
+            <h1>Вход</h1>
+            <label>Логин</label>
+            <input id="logininp" name="username" type="text" required>
+
+            <label>Пароль</label>
+            <input id="passwordinp" name="password" type="password" required>
+
+            <button id="login-button" type="submit">Войти</button>
+        </form>
+
+        <script src="../js/auth.js"></script>
         <script src="login.js"></script>
     </body>
 </html>
